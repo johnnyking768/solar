@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <title>Solara | Premium Solar Energy Solutions</title>
+  <meta name="description" content="Power your home with clean, renewable solar energy. Expert installation, maintenance, and consultation services. Get your free quote today.">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- RESET & BASE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0c10;
+      color: #eef2ff;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    :root {
+      --dark-bg: #0a0c10;
+      --surface: #11161f;
+      --surface-card: #151e2a;
+      --solar: #facc15;
+      --solar-glow: rgba(250, 204, 21, 0.25);
+      --solar-dark: #eab308;
+      --green-accent: #22c55e;
+      --text-muted: #9ca3af;
+      --border-dim: #1f2a3a;
+      --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.4);
+      --shadow-glow: 0 0 12px rgba(250, 204, 21, 0.3);
+      --transition: all 0.3s cubic-bezier(0.2, 0.95, 0.4, 1);
+    }
+
+    /* ---------- TYPOGRAPHY & UTILITIES ---------- */
+    .container {
+      max-width: 12800px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      width: 100%;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 5vw, 2.5rem);
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff, var(--solar));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .section-subhead {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+      max-width: 600px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+      min-height: 48px;
+    }
+
+    .btn-primary {
+      background: var(--solar);
+      color: #0a0c10;
+      box-shadow: 0 5px 15px rgba(250, 204, 21, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--solar-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(250, 204, 21, 0.5);
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--solar);
+      color: var(--solar);
+      background: transparent;
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-outline:hover {
+      background: var(--solar);
+      color: #0a0c10;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* ---------- STICKY NAVIGATION (fully responsive mobile) ---------- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 12, 16, 0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(250, 204, 21, 0.2);
+      padding: 0.8rem 0;
+      width: 100%;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      width: 100%;
+    }
+
+    .logo {
+      font-size: clamp(1.3rem, 5vw, 1.7rem);
+      font-weight: 800;
+      background: linear-gradient(125deg, #fff, var(--solar));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    /* CSS-only hamburger menu - mobile optimized */
+    .nav-toggle {
+      display: none;
+    }
+
+    .nav-toggle-label {
+      display: none;
+      font-size: 1.8rem;
+      color: var(--solar);
+      cursor: pointer;
+      min-width: 48px;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #e2e8f0;
+      font-weight: 500;
+      transition: var(--transition);
+      font-size: 0.95rem;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a:hover {
+      color: var(--solar);
+    }
+
+    /* ---------- HERO SECTION (responsive) ---------- */
+    .hero {
+      min-height: 85vh;
+      background: linear-gradient(125deg, rgba(0,0,0,0.8), rgba(0,0,0,0.65)), url('https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+      background-attachment: scroll;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      width: 100%;
+      animation: fadeSlideUp 0.9s ease;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(1.8rem, 7vw, 3.8rem);
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: clamp(0.9rem, 4vw, 1.1rem);
+      margin-bottom: 1.8rem;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons .btn {
+      flex: 1 1 auto;
+      min-width: 160px;
+    }
+
+    /* ---------- ABOUT SECTION (mobile first grid) ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(250, 204, 21, 0.2);
+      transition: transform 0.4s;
+    }
+
+    .mission-vision {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-direction: column;
+    }
+
+    .mv-card {
+      background: var(--surface-card);
+      padding: 1rem;
+      border-radius: 1.2rem;
+      flex: 1;
+      border-left: 3px solid var(--solar);
+    }
+
+    /* ---------- SERVICES & BENEFITS GRIDS (fully responsive) ---------- */
+    .services-grid, .benefits-grid, .projects-grid, .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .service-card, .benefit-card, .testimonial-card {
+      background: var(--surface-card);
+      border-radius: 1.25rem;
+      padding: 1.8rem 1.2rem;
+      transition: var(--transition);
+      border: 1px solid var(--border-dim);
+      text-align: center;
+    }
+
+    .service-card i, .benefit-card i {
+      font-size: 2.5rem;
+      color: var(--solar);
+      margin-bottom: 1rem;
+    }
+
+    .service-card:hover, .benefit-card:hover, .testimonial-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--solar);
+      box-shadow: 0 15px 25px -10px rgba(0,0,0,0.5), var(--shadow-glow);
+    }
+
+    /* ---------- PROJECTS GALLERY (hover zoom) ---------- */
+    .project-card {
+      background: var(--surface-card);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      transition: var(--transition);
+      border: 1px solid var(--border-dim);
+    }
+
+    .project-img {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-img {
+      transform: scale(1.05);
+    }
+
+    .project-card p {
+      padding: 1rem 1rem 1.2rem;
+      font-weight: 500;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    /* ---------- TESTIMONIALS ---------- */
+    .testimonial-card {
+      text-align: left;
+    }
+
+    .testimonial-card i.fa-quote-left {
+      color: var(--solar);
+      font-size: 1.6rem;
+      opacity: 0.7;
+      margin-bottom: 1rem;
+    }
+
+    .client-name {
+      margin-top: 1rem;
+      font-weight: 700;
+      color: var(--solar);
+    }
+
+    /* ---------- CTA SECTION (responsive) ---------- */
+    .cta-section {
+      background: linear-gradient(115deg, #0f141c, #0a0c10);
+      border-radius: 1.5rem;
+      margin: 1rem 0 2rem;
+      text-align: center;
+      padding: 2.5rem 1.2rem;
+      border: 1px solid rgba(250, 204, 21, 0.25);
+    }
+
+    .cta-content h3 {
+      font-size: clamp(1.4rem, 5vw, 1.8rem);
+    }
+
+    .cta-content p {
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    /* ---------- CONTACT SECTION (mobile responsive) ---------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+    }
+
+    .contact-form, .contact-info {
+      background: var(--surface-card);
+      padding: 1.5rem;
+      border-radius: 1.25rem;
+      border: 1px solid var(--border-dim);
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.9rem;
+      border-radius: 1rem;
+      background: #1a232f;
+      border: 1px solid #2d3a48;
+      color: white;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--solar);
+      box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.2);
+    }
+
+    .contact-info i {
+      color: var(--solar);
+      width: 28px;
+      display: inline-block;
+    }
+
+    .contact-info p {
+      margin: 0.8rem 0;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- FOOTER (responsive) ---------- */
+    .footer {
+      background: #05080c;
+      padding: 2rem 0 1.2rem;
+      border-top: 1px solid rgba(250, 204, 21, 0.15);
+      margin-top: 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-col h4 {
+      color: var(--solar);
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-col a {
+      color: var(--text-muted);
+      text-decoration: none;
+      display: inline-block;
+      margin: 0.3rem 0;
+      transition: 0.2s;
+      font-size: 0.85rem;
+    }
+
+    .social-icons i {
+      font-size: 1.4rem;
+      margin: 0 0.6rem;
+      transition: 0.2s;
+      cursor: pointer;
+      color: #aaa;
+    }
+
+    .social-icons i:hover {
+      color: var(--solar);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.7rem;
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== RESPONSIVE BREAKPOINTS (ALL MOBILE DEVICES) ========== */
+    @media (min-width: 640px) {
+      .services-grid, .benefits-grid, .projects-grid, .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+      .mission-vision {
+        flex-direction: row;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .services-grid, .benefits-grid, .projects-grid, .testimonials-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .hero-buttons .btn {
+        min-width: auto;
+      }
+    }
+
+    /* tablet and mobile navigation */
+    @media (max-width: 880px) {
+      .nav-toggle-label {
+        display: flex;
+      }
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 75%;
+        max-width: 300px;
+        height: 100vh;
+        background: rgba(10, 12, 16, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 2rem 1.8rem;
+        gap: 1.5rem;
+        transition: 0.3s ease-in-out;
+        border-right: 1px solid var(--solar);
+        z-index: 999;
+        margin: 0;
+      }
+      .nav-toggle:checked ~ .nav-links {
+        left: 0;
+      }
+      .nav-toggle:checked ~ .nav-toggle-label i::before {
+        content: "\f00d";
+      }
+      .nav-links a {
+        font-size: 1.1rem;
+        width: 100%;
+        display: block;
+      }
+      .hero {
+        min-height: 75vh;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+      }
+      section {
+        padding: 3rem 0;
+      }
+    }
+
+    /* small phones (320px - 480px) */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+      .logo {
+        font-size: 1.2rem;
+      }
+      .nav-toggle-label {
+        font-size: 1.6rem;
+      }
+      .hero-content h1 {
+        font-size: 1.6rem;
+      }
+      .hero-content p {
+        font-size: 0.85rem;
+      }
+      .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
+      }
+      .service-card, .benefit-card {
+        padding: 1.2rem;
+      }
+      .service-card i, .benefit-card i {
+        font-size: 2rem;
+      }
+      .project-img {
+        height: 180px;
+      }
+      .contact-form, .contact-info {
+        padding: 1.2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .cta-section {
+        padding: 1.8rem 1rem;
+      }
+    }
+
+    /* extra small devices (up to 360px) */
+    @media (max-width: 360px) {
+      .hero-content h1 {
+        font-size: 1.4rem;
+      }
+      .hero {
+        min-height: 70vh;
+      }
+      .section-subhead {
+        font-size: 0.8rem;
+      }
+      .testimonial-card {
+        padding: 1rem;
+      }
+      .footer-col h4 {
+        font-size: 1rem;
+      }
+    }
+
+    /* landscape mode for phones */
+    @media (max-height: 600px) and (orientation: landscape) {
+      .hero {
+        min-height: 90vh;
+      }
+      .navbar {
+        padding: 0.4rem 0;
+      }
+      section {
+        padding: 2rem 0;
+      }
+    }
+
+    /* large desktop screens */
+    @media (min-width: 1400px) {
+      .container {
+        max-width: 1400px;
+      }
+    }
+
+    /* touch improvements & prevent horizontal scroll */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    button, .btn, a, .nav-toggle-label {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    input, select, textarea {
+      font-size: 16px;
+    }
+    * {
+      min-width: 0;
+    }
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #11161f;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--solar);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- STICKY NAVIGATION (CSS-only hamburger - fully mobile responsive) -->
+<div class="navbar">
+  <div class="nav-container">
+    <div class="logo">☀️ SOLARA</div>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+    <label for="nav-toggle" class="nav-toggle-label"><i class="fas fa-bars"></i></label>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+<main>
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <h1>Power Your Home with <span style="color:#facc15;">Clean Solar Energy</span></h1>
+      <p>Cut electricity bills by up to 80% and reduce carbon footprint. Expert solar solutions for homes and businesses.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary"><i class="fas fa-solar-panel"></i> Get Free Quote</a>
+        <a href="#about" class="btn btn-outline"><i class="fas fa-play-circle"></i> Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="container">
+      <h2 class="fade-in">Illuminating the Future</h2>
+      <p class="section-subhead fade-in">We deliver cutting-edge solar technology with integrity and care.</p>
+      <div class="about-grid">
+        <div class="about-image fade-in">
+          <img src="https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Solar installation">
+        </div>
+        <div class="about-text fade-in">
+          <h3>Your trusted solar partner since 2015</h3>
+          <p>Solara is a premium solar energy company dedicated to sustainable innovation. We provide end-to-end solar solutions — from consultation to installation and maintenance — ensuring maximum energy efficiency.</p>
+          <div class="mission-vision">
+            <div class="mv-card"><strong>🚀 Mission</strong><br>Democratize clean energy access.</div>
+            <div class="mv-card"><strong>🌱 Vision</strong><br>Net-zero communities by 2030.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <div class="container">
+      <h2 class="fade-in">Premium Solar Services</h2>
+      <p class="section-subhead fade-in">Tailored solutions for residential & commercial needs</p>
+      <div class="services-grid">
+        <div class="service-card fade-in"><i class="fas fa-home"></i><h3>Residential Installation</h3><p>Custom rooftop solar arrays, battery backup, and smart monitoring.</p></div>
+        <div class="service-card fade-in"><i class="fas fa-building"></i><h3>Commercial Solar</h3><p>High-efficiency panels for warehouses, offices, and industries.</p></div>
+        <div class="service-card fade-in"><i class="fas fa-tools"></i><h3>Maintenance & Care</h3><p>Preventive maintenance, cleaning, and performance optimization.</p></div>
+        <div class="service-card fade-in"><i class="fas fa-chalkboard-user"></i><h3>Energy Consultation</h3><p>Personalized energy audit and financial ROI analysis.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section id="why-us">
+    <div class="container">
+      <h2 class="fade-in">Why Choose Solara?</h2>
+      <p class="section-subhead fade-in">Experience reliability, savings, and environmental impact</p>
+      <div class="benefits-grid">
+        <div class="benefit-card fade-in"><i class="fas fa-dollar-sign"></i><h3>Affordable Plans</h3><p>Flexible financing & zero-down options available.</p></div>
+        <div class="benefit-card fade-in"><i class="fas fa-shield-alt"></i><h3>25-Year Warranty</h3><p>Industry-leading warranty on panels & inverters.</p></div>
+        <div class="benefit-card fade-in"><i class="fas fa-leaf"></i><h3>Eco-Friendly</h3><p>Offset 100+ tons of CO₂ over system lifetime.</p></div>
+        <div class="benefit-card fade-in"><i class="fas fa-certificate"></i><h3>Certified Experts</h3><p>NABCEP certified installers & premium support.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS GALLERY -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="fade-in">Recent Solar Installations</h2>
+      <p class="section-subhead fade-in">Real projects delivering real energy independence</p>
+      <div class="projects-grid">
+        <div class="project-card fade-in"><div class="project-img" style="background-image: url('https://images.pexels.com/photos/450035/pexels-photo-450035.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><p>🏡 Modern Villa | 12kW System</p></div>
+        <div class="project-card fade-in"><div class="project-img" style="background-image: url('https://images.pexels.com/photos/159397/alternative-energy-eco-sustainability-renewable-energy-159397.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><p>🏭 Commercial Warehouse | 85kW Array</p></div>
+        <div class="project-card fade-in"><div class="project-img" style="background-image: url('https://images.pexels.com/photos/838552/pexels-photo-838552.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><p>🌾 Rural Farm | Off-Grid System + Storage</p></div>
+        <div class="project-card fade-in"><div class="project-img" style="background-image: url('https://images.pexels.com/photos/914910/pexels-photo-914910.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><p>🏫 School Campus | Net-zero Energy</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <h2 class="fade-in">What Our Customers Say</h2>
+      <p class="section-subhead fade-in">Over 2,500+ happy homeowners & businesses</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in"><i class="fas fa-quote-left"></i><p>"Solara transformed our energy bill! Professional team, seamless installation. We're saving 70% monthly."</p><div class="client-name">— Michael R.</div></div>
+        <div class="testimonial-card fade-in"><i class="fas fa-quote-left"></i><p>"Exceptional service from quote to activation. Their maintenance plan gives us peace of mind."</p><div class="client-name">— Linda K.</div></div>
+        <div class="testimonial-card fade-in"><i class="fas fa-quote-left"></i><p>"The best investment for our commercial building. Highly recommend the Solara team."</p><div class="client-name">— GreenTech Industries</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <div class="container">
+    <div class="cta-section fade-in">
+      <div class="cta-content">
+        <h3>Ready to switch to solar?</h3>
+        <p>Get a personalized quote and discover how much you can save. Zero upfront cost options available.</p>
+        <a href="#contact" class="btn btn-primary" style="margin-top: 1.2rem;"><i class="fas fa-bolt"></i> Get Free Quote →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="fade-in">Contact Our Solar Experts</h2>
+      <p class="section-subhead fade-in">Let’s discuss your energy goals. Request a free consultation.</p>
+      <div class="contact-grid">
+        <div class="contact-form fade-in">
+          <form action="#" method="post">
+            <div class="form-group"><input type="text" placeholder="Full Name" required></div>
+            <div class="form-group"><input type="email" placeholder="Email Address" required></div>
+            <div class="form-group"><textarea rows="4" placeholder="Tell us about your property..."></textarea></div>
+            <button type="submit" class="btn btn-primary" style="width:100%;"><i class="fas fa-paper-plane"></i> Send Message</button>
+          </form>
+        </div>
+        <div class="contact-info fade-in">
+          <h3><i class="fas fa-map-marker-alt" style="color:#facc15;"></i> Visit Us</h3>
+          <p><i class="fas fa-phone-alt"></i> +1 (800) 567-SOLAR</p>
+          <p><i class="fas fa-envelope"></i> hello@solaraenergy.com</p>
+          <p><i class="fas fa-clock"></i> Mon-Fri: 8am – 6pm</p>
+          <p><i class="fas fa-location-dot"></i> 410 Sunbeam Ave, Austin, TX 78701</p>
+          <hr style="border-color:#2d3a48; margin:1rem 0;">
+          <p><strong>🏆 Rated #1 Solar Installer — 2025 Eco Awards</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>SOLARA</h4><p>Clean energy for a brighter tomorrow.</p><div class="social-icons"><i class="fab fa-facebook-f"></i><i class="fab fa-instagram"></i><i class="fab fa-linkedin-in"></i><i class="fab fa-x-twitter"></i></div></div>
+      <div class="footer-col"><h4>Explore</h4><a href="#home">Home</a><br><a href="#about">About</a><br><a href="#services">Services</a><br><a href="#projects">Projects</a></div>
+      <div class="footer-col"><h4>Support</h4><a href="#">FAQ</a><br><a href="#">Warranty</a><br><a href="#">Financing</a><br><a href="#contact">Contact</a></div>
+      <div class="footer-col"><h4>Legal</h4><a href="#">Privacy Policy</a><br><a href="#">Terms of Service</a></div>
+    </div>
+    <div class="copyright">© 2025 Solara Energy — Premium Solar Solutions. Empowering sustainability.</div>
+  </div>
+</footer>
+
+<!-- Intersection Observer for fade-in animations -->
+<script>
+  (function() {
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    faders.forEach(el => observer.observe(el));
+    
+    // Close mobile menu on anchor click (better UX)
+    const toggleCheckbox = document.getElementById('nav-toggle');
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (toggleCheckbox && toggleCheckbox.checked) toggleCheckbox.checked = false;
+      });
+    });
+  })();
+</script>
+</body>
+</html>
