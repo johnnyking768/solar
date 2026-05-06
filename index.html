@@ -456,14 +456,7 @@
     }
 
     .fade-in {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+      animation: fadeSlideUp 0.8s ease forwards;
     }
 
     /* ========== RESPONSIVE BREAKPOINTS (ALL MOBILE DEVICES) ========== */
@@ -748,8 +741,8 @@
       <p class="section-subhead fade-in">Real projects delivering real energy independence</p>
       <div class="projects-grid">
         <div class="project-card fade-in"><div class="project-img" style="background-image: url('https://images.pexels.com/photos/450035/pexels-photo-450035.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><p>🏡 Modern Villa | 12kW System</p></div>
-        <div class="project-card fade-in"><div class="project-img" style="background-image: url('https://images.pexels.com/photos/159397/alternative-energy-eco-sustainability-renewable-energy-159397.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><p>🏭 Commercial Warehouse | 85kW Array</p></div>
-        <div class="project-card fade-in"><div class="project-img" style="background-image: url('https://images.pexels.com/photos/838552/pexels-photo-838552.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><p>🌾 Rural Farm | Off-Grid System + Storage</p></div>
+        <div class="project-card fade-in"><div class="project-img" style="background-image: url('https://images.pexels.com/photos/450035/pexels-photo-450035.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><p>🏭 Commercial Warehouse | 85kW Array</p></div>
+        <div class="project-card fade-in"><div class="project-img" style="background-image: url('https://images.pexels.com/photos/450035/pexels-photo-450035.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><p>🌾 Rural Farm | Off-Grid System + Storage</p></div>
         <div class="project-card fade-in"><div class="project-img" style="background-image: url('https://images.pexels.com/photos/914910/pexels-photo-914910.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><p>🏫 School Campus | Net-zero Energy</p></div>
       </div>
     </div>
@@ -795,7 +788,7 @@
         </div>
         <div class="contact-info fade-in">
           <h3><i class="fas fa-map-marker-alt" style="color:#facc15;"></i> Visit Us</h3>
-          <p><i class="fas fa-phone-alt"></i> +1 (800) 567-SOLAR</p>
+          <p><i class="fas fa-phone-alt"></i> +234 8121638903-SOLAR</p>
           <p><i class="fas fa-envelope"></i> hello@solaraenergy.com</p>
           <p><i class="fas fa-clock"></i> Mon-Fri: 8am – 6pm</p>
           <p><i class="fas fa-location-dot"></i> 410 Sunbeam Ave, Austin, TX 78701</p>
@@ -820,28 +813,5 @@
   </div>
 </footer>
 
-<!-- Intersection Observer for fade-in animations -->
-<script>
-  (function() {
-    const faders = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    faders.forEach(el => observer.observe(el));
-    
-    // Close mobile menu on anchor click (better UX)
-    const toggleCheckbox = document.getElementById('nav-toggle');
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (toggleCheckbox && toggleCheckbox.checked) toggleCheckbox.checked = false;
-      });
-    });
-  })();
-</script>
 </body>
 </html>
